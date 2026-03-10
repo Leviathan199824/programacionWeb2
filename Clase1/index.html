@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repaso</title>
+</head>
+
+<body>
+    <form>
+        <label>Ingrese palabra:</label>
+        <br>
+        <input type="text" id="nombre">
+    </form>
+
+    <button onclick="validar()">validar</button>
+    <div id="res"></div>
+    <script>
+        function validar() {
+            //console.log("el boton funciona");
+            /* Obtengo el valor dentreo de mi input identificado por mi Id*/
+            const recepcion = document.getElementById("nombre").value;
+            /* Compruebo que tengo el valor de mi input */
+            console.log(recepcion + " <------------ cadena recepcionada del input");
+            /*
+                almenos tenga una mayuscula
+                almenos tenga una minuscula
+                almenos un digito
+            */
+            /* validar Mayusculas*/
+            /* andres 
+            i=0 -> recepcion[i] ='a'
+            i=1 -> recepcion[i] ='n'
+            i=2 -> recepcion[i] ='d'
+            i=3 -> recepcion[i] ='r'
+            i=4 -> recepcion[i] ='e'
+            i=5 -> recepcion[i] ='s'
+             recepcion.length -> me obtiene el tamaño total de la cadena 
+            */
+            let bandera1 = false;
+            let bandera2 = false;
+            let bandera3 = false;
+            for (let i = 0; i < recepcion.length; i++) {
+                console.log("entro");
+                let codigo = recepcion.charCodeAt(i);/* obtiene el codigo ascci de letras y numeros*/
+
+                /* mayusculas ASCII 65-90 */
+                if (codigo >= 65 && codigo <= 90) {
+                    console.log(1);
+                    bandera1 = true;
+                }
+
+                /* minusculas ASCII 97-122 */
+                if (codigo >= 97 && codigo <= 122) {
+                    console.log(2)
+                    bandera2 = true;
+                }
+
+                /* digitos */
+                if (codigo >= 48 && codigo <= 57) {
+                    bandera3 = true;
+                }
+            }
+            let respuesta = "";
+            if (bandera1 && bandera2 && bandera3) {
+                respuesta = "Cadena correcta";
+            } else {
+                respuesta = "Cadena incorrecta";
+            }
+            document.getElementById("res").innerHTML = respuesta;
+        }
+    </script>
+</body>
+
+</html>
