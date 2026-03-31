@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        margin: 0;
+    }
+    .contenedor {
+        background-color: aliceblue;
+        border: 2px solid red;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        height: 200px;
+        gap: 10px;
+        margin-right: auto;
+        /*derecho*/
+        margin-left: auto;
+        /*izquierdo*/
+        /*
+        margin-top: auto;margen superior 
+        margin-bottom: auto;margen inferior*/
+        margin-top: 150px;
+        padding: 5px;
+        width: 300px;
+
+    }
+
+    .hijo {
+        background: linear-gradient(90deg,rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(237, 221, 83, 1) 100%);
+        border: 2px solid green;
+        /*height: 50px;*/
+        width: 100%;
+        cursor:pointer;
+    }
+
+    .visible {
+        border: 2px solid blue;
+        display: none;
+        width: 100%;
+    }
+    /*añadir una transicion cuando le den click
+        cuando le dan click ? cuando llaman a la funcion
+    */
+    .x{
+        transition: y ease-in-out;
+        /* pagina para transicion
+        https://cssgradient-io.translate.goog/?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=tc&_x_tr_hist=true*/
+    }
+
+</style>
+
+<body>
+    <div class="contenedor">
+        <div class="hijo" onclick="remove1()">
+            contenido1
+            <div id="nieto1" class="visible">
+                este es el nieto
+            </div>
+        </div>
+        <div class="hijo" onclick="remove2()">
+            contenido2
+            <div id="nieto2" class="visible">
+                este es el nieto
+            </div>
+        </div>
+        <div class="hijo" onclick="remove3()">
+            contenido3
+            <div id="nieto3" class="visible">
+                este es el nieto
+            </div>
+        </div>
+    </div>
+    <script>
+        let A=0;/* estado inicial 0 es invisible*/
+        let B=0;
+        let C=0;
+        
+        function remove1() {
+            /* añadir la transicion*/
+            console.log(A);
+            /* cuando llamo a la funcion*/
+            let elemento = document.getElementById("nieto1");/*obtengo el elemento */
+            if(A==0){ /* preguntando si esta oculto */
+                elemento.classList.remove("visible");/* remuevo el estilo para que sea visible*/
+                A=1;
+            }else{
+                /* entra cuando el elemento esta visible */
+                /* agrego para que sea invisible*/
+                elemento.classList.add("visible");
+                A=0;
+            }
+            console.log(A +" <----");
+        }
+
+        function remove2() {
+            let elemento = document.getElementById("nieto2");
+            if(B==0){
+                elemento.classList.remove("visible");
+                B=1;
+            }else{
+                elemento.classList.add("visible");
+                B=0;
+            }
+            
+        }
+        function remove3() {
+            let elemento = document.getElementById("nieto3");
+            if(C==0){
+                elemento.classList.remove("visible");
+                C=1;
+            }else{
+                elemento.classList.add("visible");
+                C=0;
+            }
+        }
+    </script>
+</body>
+
+</html>
