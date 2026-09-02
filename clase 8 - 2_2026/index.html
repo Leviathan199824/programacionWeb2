@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo1</title>
+</head>
+<style>
+   .contenedor{
+        /*border:2px solid red; */
+        display: flex;  /* es para centrear elementos*/
+        flex-direction: column;
+        margin-left: auto;
+        margin-right: auto;
+        height: 200px;
+        width: 150px;
+        gap: 5px;
+   } 
+   .boton {
+        background-color: rgb(0, 106, 255);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        text-align: center;
+   }
+   .boton-cancelar {
+        background-color: rgb(225, 9, 9);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        text-align: center;
+   }
+   .boton-suscribirse {
+        background-color: rgb(38, 192, 81);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        text-align: center;
+   }
+   .boton:hover{
+        cursor: pointer;
+   }
+   .boton-cancelar:hover{
+        cursor: pointer;
+   }
+   .boton-suscribirse:hover{
+        cursor: pointer;
+   }
+</style>
+<body>
+    <h1>botones</h1>
+    <div class="contenedor">
+        <p>tipos de Botones</p>
+        <button class="boton" onclick="saludo()">
+            Enviar
+        </button>
+        <button class="boton-cancelar" onclick="saludo()">
+            Cancelar
+        </button>
+        <button class="boton-suscribirse" onclick="saludo()">
+            Suscribirse
+        </button>
+    </div>
+    <script>
+        function saludo(){
+            //console.log("funciona")
+            alert("hola como estas...¡¡¡")
+        }
+    </script>
+</body>
+</html>
